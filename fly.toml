@@ -1,0 +1,28 @@
+# fly.toml app configuration file generated for yesbot on 2023-11-25T15:42:32-06:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "yesbot"
+primary_region = "iad"
+
+[build]
+
+[[mounts]]
+  source = "data"
+  destination = "/data"
+  auto_extend_size_threshold = 0
+  initial_size = "1gb"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
