@@ -10,8 +10,12 @@
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\build\\server.js",
-      "preLaunchTask": "tsc: build - tsconfig.json",
-      "outFiles": ["${workspaceFolder}/build/**/*.js"]
+      "preLaunchTask": "npm: build",
+      "outFiles": ["${workspaceFolder}/build/**/*.js"],
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": [
+        "--inspect" // Enables Node.js debugging
+      ]
     }
   ]
 }

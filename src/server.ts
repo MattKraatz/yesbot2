@@ -47,6 +47,7 @@ app.post<{}, {}, ChatMessage>("/messages", async (request, response) => {
       })
       .execute();
   }
+  response.sendStatus(200);
 });
 
 // startup
